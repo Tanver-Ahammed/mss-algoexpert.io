@@ -12,8 +12,7 @@ public class MoveElementToEnd {
         int updateArrIndex = 0;
         while (index < array.size()) {
             int temp = array.get(index);
-            if (temp == toMove) {
-            } else {
+            if (temp != toMove) {
                 array.set(updateArrIndex, temp);
                 ++updateArrIndex;
             }
@@ -25,15 +24,15 @@ public class MoveElementToEnd {
         return array;
     }
 
-    // Time O(n) || space O(1) using swap
+    // Time O(n) || Space O(1) using swap
     public static List<Integer> moveElementToEnd2(List<Integer> array, int toMove) {
         // Write your code here.
         // [2, 1, 2, 2, 2, 3, 4, 2]
         int updateIndex = 0;
         for (int i = 0; i < array.size(); i++) {
-            if (array.get(i) != toMove) {
+            int temp = array.get(i);
+            if (temp != toMove) {
                 // swap
-                int temp = array.get(i);
                 array.set(i, array.get(updateIndex));
                 array.set(updateIndex, temp);
                 ++updateIndex;

@@ -4,7 +4,7 @@ package algoexpert.io.arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class P02_ValidateSubsequence {
+public class ValidateSubsequence {
 
     // Time O(n) || space O(1)
     public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {

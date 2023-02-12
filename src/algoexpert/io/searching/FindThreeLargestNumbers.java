@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class FindThreeLargestNumbers {
 
+    // Time O(n) || space O(1) using recursion
     public static int[] findThreeLargestNumbers(int[] array) {
         // Write your code here.
         int firstLargestNumber = Integer.MIN_VALUE;

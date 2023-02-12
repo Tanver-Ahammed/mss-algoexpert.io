@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 // https://leetcode.com/problems/two-sum/
-public class P01_TwoNumberSum {
+public class TwoNumberSum {
 
     // Time O(n^2) || space O(1)
     public static int[] twoNumberSum(int[] array, int targetSum) {

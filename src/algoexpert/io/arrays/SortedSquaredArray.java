@@ -2,7 +2,7 @@ package algoexpert.io.arrays;
 
 import java.util.Arrays;
 
-public class P03_SortedSquaredArray {
+public class SortedSquaredArray {
 
     // Time O(nlogn) || space O(1)
     public int[] sortedSquaredArray(int[] array) {
@@ -33,7 +33,7 @@ public class P03_SortedSquaredArray {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new P03_SortedSquaredArray().sortedSquaredArray(new int[]{-4, 1, 2, 3, 5, 6, 8, 9})));
-        System.out.println(Arrays.toString(new P03_SortedSquaredArray().sortedSquaredArray1(new int[]{-4, 1, 2, 3, 5, 6, 8, 9})));
+        System.out.println(Arrays.toString(new SortedSquaredArray().sortedSquaredArray(new int[]{-4, 1, 2, 3, 5, 6, 8, 9})));
+        System.out.println(Arrays.toString(new SortedSquaredArray().sortedSquaredArray1(new int[]{-4, 1, 2, 3, 5, 6, 8, 9})));
     }
 }

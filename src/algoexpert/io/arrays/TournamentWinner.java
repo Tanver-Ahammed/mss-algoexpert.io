@@ -2,7 +2,7 @@ package algoexpert.io.arrays;
 
 import java.util.*;
 
-public class P04_TournamentWinner {
+public class TournamentWinner {
 
     public String tournamentWinner(ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results) {
         // Write your code here.
@@ -59,8 +59,8 @@ public class P04_TournamentWinner {
         results.add(0);
         results.add(1);
 
-        System.out.println(new P04_TournamentWinner().tournamentWinner(competitions, results));
-        System.out.println(new P04_TournamentWinner().tournamentWinnerAnother(competitions, results));
+        System.out.println(new TournamentWinner().tournamentWinner(competitions, results));
+        System.out.println(new TournamentWinner().tournamentWinnerAnother(competitions, results));
 
 
     }
