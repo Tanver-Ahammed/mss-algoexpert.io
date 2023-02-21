@@ -38,7 +38,7 @@ public class TwoNumberSum {
         return new int[0];
     }
 
-    // Time O(nlogn) || space O(1)
+    // Time O(nlogn) || space O(1) using two pointer
     public static int[] twoNumberSum2(int[] array, int targetSum) {
         // Write your code here.
         Arrays.sort(array);

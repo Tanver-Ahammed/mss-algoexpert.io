@@ -17,6 +17,22 @@ public class SearchInSortedMatrix {
         return new int[]{-1, -1};
     }
 
+    // Time O(n^2) || space O(1) using recursion
+    public static int[] searchInSortedMatrix1(int[][] matrix, int target) {
+        // Write your code here.
+        int i = matrix.length - 1;
+        int j = 0;
+        while (i >= 0 && j < matrix[0].length) {
+            if (matrix[i][j] == target)
+                return new int[]{i, j};
+            if (matrix[i][j] < target)
+                ++j;
+            else
+                --i;
+        }
+        return new int[]{-1, -1};
+    }
+
     public static void main(String[] args) {
 
         int[][] arr = new int[][]
@@ -27,7 +43,7 @@ public class SearchInSortedMatrix {
                         {40, 41, 42, 44, 45, 1003},
                         {99, 100, 103, 106, 128, 1004}
                 };
-        System.out.println(Arrays.toString(searchInSortedMatrix(arr, 1000)));
+        System.out.println(Arrays.toString(searchInSortedMatrix1(arr, 1000)));
 
     }
 
