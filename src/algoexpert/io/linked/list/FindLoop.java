@@ -5,7 +5,18 @@ public class FindLoop {
 
     public static LinkedList findLoop(LinkedList head) {
         // Write your code here.
-        return null;
+        LinkedList first = head.next;
+        LinkedList second = head.next.next;
+        while (first != second) {
+            first = first.next;
+            second = second.next.next;
+        }
+        first = head;
+        while (first != second) {
+            first = first.next;
+            second = second.next;
+        }
+        return first;
     }
 
     static class LinkedList {
