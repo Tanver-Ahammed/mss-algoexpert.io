@@ -6,15 +6,22 @@ public class RemoveKthNodeFromEnd {
         // Write your code here.
         LinkedList temp = head;
         int length = 1;
-        while (temp != null) {
+        while (temp.next != null) {
             ++length;
             temp = temp.next;
         }
 
         int indexToRemove = length - k;
         if (indexToRemove == 0) {
-            head = head.next;
+            head.value = head.next.value;
+            head.next = head.next.next;
+            return;
         }
+        temp = head;
+        for (int i = 0; i < indexToRemove - 1; i++) {
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
     }
 
     static class LinkedList {

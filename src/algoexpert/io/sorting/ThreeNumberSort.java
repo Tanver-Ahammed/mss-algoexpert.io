@@ -2,29 +2,59 @@ package algoexpert.io.sorting;
 
 public class ThreeNumberSort {
 
-    // Time O(n) || space O(1) using recursion
-    public int[] threeNumberSort(int[] array, int[] order) {
+    // Time O(n) || space O(n) using recursion
+    public int[] threeNumberSort1(int[] array, int[] order) {
         // Write your code here.
-
-        return new int[]{};
+        int[] newArray = new int[array.length];
+        int index = 0;
+        for (int j : array) {
+            if (j == order[0]) {
+                newArray[index] = j;
+                ++index;
+            }
+        }
+        for (int j : array) {
+            if (j == order[1]) {
+                newArray[index] = j;
+                ++index;
+            }
+        }
+        for (int j : array) {
+            if (j == order[2]) {
+                newArray[index] = j;
+                ++index;
+            }
+        }
+        return newArray;
     }
 
-    public static boolean isPowerOfFour(int n) {
-        if (n == 1 || n == 4)
-            return true;
-        while (n >= 4) {
-            if (n == 4 || n == 16)
-                return true;
-            else if (n % 16 != 0)
-                return false;
-            n = n / 16;
+
+    // Time O(n) || space O(n) using recursion
+    public int[] threeNumberSort2(int[] array, int[] order) {
+        // Write your code here.
+        int i = -1;
+        int j = 0;
+        int k = array.length;
+        while (j < k) {
+            if (array[j] == order[0] && i != j) {
+                ++i;
+                swap(i, j, array);
+            } else if (array[j] == order[2] && k != j) {
+                --k;
+                swap(j, k, array);
+            } else
+                j++;
         }
-        return false;
+        return array;
+    }
+
+    private void swap(int i, int j, int[] array) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
     public static void main(String[] args) {
-
-        System.out.println(isPowerOfFour(65));
 
     }
 

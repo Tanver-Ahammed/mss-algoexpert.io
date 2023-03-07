@@ -1,33 +1,32 @@
 package practise;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Test {
 
-    public boolean isIsomorphic(String s, String t) {
-        if (s.length() != t.length())
+    public static boolean sameBsts(List<Integer> arrayOne, List<Integer> arrayTwo) {
+        // Write your code here.
+        if (arrayOne.size() == arrayTwo.size() && arrayOne.size() == 0)
+            return true;
+        if (!Objects.equals(arrayOne.get(0), arrayTwo.get(0)) || arrayOne.size() != arrayTwo.size())
             return false;
-        Map<Character, Character> map = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            if (map.containsKey(s.charAt(i))) {
-                char temp = map.get(s.charAt(i));
-                if (temp != t.charAt(i))
-                    return false;
-            } else {
-                if (map.containsValue(t.charAt(i)))
-                    return false;
-                map.put(s.charAt(i), t.charAt(i));
-            }
+        arrayOne.remove(0);
+        arrayTwo.remove(0);
+        Collections.sort(arrayOne);
+        Collections.sort(arrayTwo);
+        for (int i = 0; i < arrayOne.size(); i++) {
+            if (!Objects.equals(arrayOne.get(i), arrayTwo.get(i)))
+                return false;
         }
         return true;
     }
 
     public static void main(String[] args) {
+        List<Integer> arrayOne = new ArrayList<Integer>(Arrays.asList(10, 15, 8, 12, 94, 81, 5, 2, 11));
+        List<Integer> arrayTwo = new ArrayList<Integer>(Arrays.asList(10, 8, 5, 15, 2, 12, 11, 94, 81));
 
-        System.out.println(new Test().isIsomorphic("badc", "baba"));
-//        System.out.println(new Test().isIsomorphic("egg", "add"));
+        System.out.println(sameBsts(arrayOne, arrayTwo));
 
     }
 

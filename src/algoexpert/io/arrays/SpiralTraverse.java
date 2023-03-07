@@ -17,10 +17,14 @@ public class SpiralTraverse {
                 spiralList.add(array[startRow][col]);
             for (int row = startRow + 1; row < endRow + 1; row++)
                 spiralList.add(array[row][endCol]);
-            for (int col = endCol - 1; col > startCol; col--)
-                spiralList.add(array[endRow][col]);
-            for (int row = endRow; row >= startRow + 1; row--)
-                spiralList.add(array[row][startCol]);
+            if (endRow > startRow) {
+                for (int col = endCol - 1; col > startCol; col--)
+                    spiralList.add(array[endRow][col]);
+            }
+            if (endCol > startCol) {
+                for (int row = endRow; row >= startRow + 1; row--)
+                    spiralList.add(array[row][startCol]);
+            }
             startRow++;
             endRow--;
             startCol++;
