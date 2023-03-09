@@ -1,33 +1,40 @@
 package practise;
 
 
-import java.util.*;
-
 public class Test {
 
-    public static boolean sameBsts(List<Integer> arrayOne, List<Integer> arrayTwo) {
-        // Write your code here.
-        if (arrayOne.size() == arrayTwo.size() && arrayOne.size() == 0)
-            return true;
-        if (!Objects.equals(arrayOne.get(0), arrayTwo.get(0)) || arrayOne.size() != arrayTwo.size())
-            return false;
-        arrayOne.remove(0);
-        arrayTwo.remove(0);
-        Collections.sort(arrayOne);
-        Collections.sort(arrayTwo);
-        for (int i = 0; i < arrayOne.size(); i++) {
-            if (!Objects.equals(arrayOne.get(i), arrayTwo.get(i)))
-                return false;
+    public int jump(int[] nums) {
+        if (nums.length == 1)
+            return 0;
+        int numberOfJump = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] <= 0)
+                break;
+            if (nums[i] + i >= nums.length - 1) {
+                ++numberOfJump;
+                break;
+            }
+            i = findMaxIndex(nums, i, nums[i]) - 1;
+            ++numberOfJump;
         }
-        return true;
+        return numberOfJump;
+    }
+
+    private int findMaxIndex(int[] nums, int initialIndex, int currentJump) {
+        int max = 0;
+        int index = initialIndex;
+        for (int i = initialIndex + 1; i <= initialIndex + currentJump; i++) {
+            if (nums[i] >= max) {
+                max = nums[i];
+                index = i;
+            }
+        }
+        return index;
     }
 
     public static void main(String[] args) {
-        List<Integer> arrayOne = new ArrayList<Integer>(Arrays.asList(10, 15, 8, 12, 94, 81, 5, 2, 11));
-        List<Integer> arrayTwo = new ArrayList<Integer>(Arrays.asList(10, 8, 5, 15, 2, 12, 11, 94, 81));
-
-        System.out.println(sameBsts(arrayOne, arrayTwo));
-
+        System.out.println(new Test().jump(new int[]{2, 3, 1, 1, 4}));
+//        System.out.println(new Test().jump(new int[]{2, 1}));
     }
 
 }
