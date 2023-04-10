@@ -29,7 +29,7 @@ public class ThreeNumberSort {
     }
 
 
-    // Time O(n) || space O(n) using recursion
+    // Time O(n) || space O(1)
     public int[] threeNumberSort2(int[] array, int[] order) {
         // Write your code here.
         int i = -1;
@@ -39,7 +39,7 @@ public class ThreeNumberSort {
             if (array[j] == order[0] && i != j) {
                 ++i;
                 swap(i, j, array);
-            } else if (array[j] == order[2] && k != j) {
+            } else if (array[j] == order[2]) {
                 --k;
                 swap(j, k, array);
             } else

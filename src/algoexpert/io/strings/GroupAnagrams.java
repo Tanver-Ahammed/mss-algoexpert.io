@@ -4,7 +4,7 @@ import java.util.*;
 
 public class GroupAnagrams {
 
-    // Time O(n) || space O(1)
+    // Time O(n) || space O(n)
     public static List<List<String>> groupAnagrams(List<String> words) {
         // Write your code here.
         Map<String, List<String>> map = new HashMap<>();

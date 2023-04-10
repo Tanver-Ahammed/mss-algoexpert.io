@@ -23,8 +23,12 @@ public class ValidIPAddresses {
     }
 
     private boolean isValidIPPart(String part) {
-        return Integer.parseInt(part) < 256 &&
-                (part.length() > 1 && part.charAt(0) != '0' || part.length() == 1);
+        try {
+            return Integer.parseInt(part) < 256 &&
+                    (part.length() > 1 && part.charAt(0) != '0' || part.length() == 1);
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
